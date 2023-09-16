@@ -1,11 +1,13 @@
 let randomHit;
 let score=0;
+let timer = 6;
+
 const makeBubble = () =>{
     let bubble="";
     let randomInteger = 0;
     
     
-    for(let i=0 ; i<112 ; i++)
+    for(let i=0 ; i<98 ; i++)
     {
         randomInteger = Math.floor(Math.random()*10);
         bubble += `<div id="bub">${randomInteger}</div>`
@@ -16,7 +18,6 @@ const makeBubble = () =>{
 makeBubble();
 
 const setTimer = () =>{
-    let timer = 60;
     let timerInterval = setInterval(() => {
         if(timer>0)
         {
@@ -25,6 +26,7 @@ const setTimer = () =>{
         }
         else
         {
+
             clearInterval(timerInterval);
 document.querySelector("#bottom").innerHTML = `<div class="bottomAfterGameOver">
 <h1 style="color: white;">Score  : ${score} </h1>
@@ -55,5 +57,14 @@ document.querySelector("#bottom").addEventListener("click" , (details)=>{
     }
     makeBubble();
     getNewHit();
+
+    if(timer == 0)
+    {
+        timer=6;
+        score=0;
+    document.querySelector("#score").textContent=score;
+
+        setTimer();
+    }
 
 })
