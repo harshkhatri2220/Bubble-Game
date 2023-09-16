@@ -1,6 +1,6 @@
 let randomHit;
 let score=0;
-let timer = 6;
+let timer = 60;
 
 const makeBubble = () =>{
     let bubble="";
@@ -60,7 +60,7 @@ document.querySelector("#bottom").addEventListener("click" , (details)=>{
 
     if(timer == 0)
     {
-        timer=6;
+        timer=60;
         score=0;
     document.querySelector("#score").textContent=score;
 
